@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBox from "./SearchBox";
 
 const navLinks = [
   { href: "/products?category=hospital-disposables", label: "Hospital Disposables" },
@@ -26,17 +27,12 @@ export default function Header() {
       </nav>
 
       <div className="flex items-center gap-4 sm:gap-5">
-        <Link
-          href="/products"
-          className="hidden sm:flex items-center gap-2 border border-line rounded-full px-4 py-2 text-sm text-muted hover:border-teal transition-colors w-56"
-        >
-          <span aria-hidden>⌕</span> Search products…
-        </Link>
+        <SearchBox />
         <Link
           href="/contact"
           className="bg-teal-deep text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-teal transition-colors"
         >
-          Cart · 0
+          Talk to Us
         </Link>
       </div>
     </header>

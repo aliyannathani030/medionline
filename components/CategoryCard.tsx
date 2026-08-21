@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Blister from "./Blister";
 import type { Category } from "@/lib/data";
 
 export default function CategoryCard({ category }: { category: Category }) {
@@ -11,9 +10,6 @@ export default function CategoryCard({ category }: { category: Category }) {
         featured ? "bg-teal-deep text-white" : "bg-white"
       }`}
     >
-      <div className="absolute top-6 right-6">
-        <Blister count={4} filledEvery={featured ? 1 : 99} size="sm" />
-      </div>
       <div
         className={`font-mono text-[11px] mb-10 ${
           featured ? "text-teal-pale" : "text-muted"

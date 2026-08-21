@@ -11,8 +11,7 @@ export default function Footer() {
       </div>
       <div className="flex gap-6 sm:gap-8 text-sm text-muted flex-wrap justify-center">
         <Link href="/about" className="hover:text-teal-deep transition-colors">About</Link>
-        <Link href="/contact" className="hover:text-teal-deep transition-colors">Track Order</Link>
-        <Link href="/contact" className="hover:text-teal-deep transition-colors">Become a Seller</Link>
+        <Link href="/faq" className="hover:text-teal-deep transition-colors">FAQ</Link>
         <Link href="/contact" className="hover:text-teal-deep transition-colors">Contact</Link>
       </div>
     </footer>
