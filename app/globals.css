@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #f6f4ee;
+  --color-white: #fffefb;
+  --color-ink: #12241f;
+  --color-muted: #6c7a75;
+  --color-line: #d8d2c4;
+  --color-teal-deep: #0e3b37;
+  --color-teal: #1c6b63;
+  --color-teal-pale: #dceae6;
+  --color-amber: #e2a63b;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-white: var(--color-white);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-teal-deep: var(--color-teal-deep);
+  --color-teal: var(--color-teal);
+  --color-teal-pale: var(--color-teal-pale);
+  --color-amber: var(--color-amber);
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: "Inter", sans-serif;
+}
+
+.blister-dot {
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: var(--color-teal-pale);
+  border: 1px solid var(--color-line);
+}
+
+.blister-dot.filled {
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-up 0.5s ease both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
