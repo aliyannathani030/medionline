@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Blister from "@/components/Blister";
 import CategoryCard from "@/components/CategoryCard";
 import { categories, products } from "@/lib/data";
 
@@ -67,13 +66,10 @@ export default function Home() {
             <div className="font-mono text-[11px] text-teal tracking-wide mb-2.5 uppercase">
               {featuredProduct.category}
             </div>
-            <h3 className="font-display text-[22px] font-semibold mb-3.5">
+            <h3 className="font-display text-[22px] font-semibold mb-6">
               {featuredProduct.name}
             </h3>
-            <div className="mt-4 mb-5">
-              <Blister count={12} filledEvery={3} />
-            </div>
-            <div className="flex justify-between items-center border-t border-dashed border-line pt-4">
+            <div className="flex justify-between items-center border-t border-line pt-4">
               {featuredProduct.price ? (
                 <span className="font-mono text-xl font-bold text-teal-deep">
                   Rs. {featuredProduct.price.toLocaleString()}
@@ -87,7 +83,7 @@ export default function Home() {
                 href={featuredProduct.price ? "/products" : "/contact"}
                 className="bg-amber text-teal-deep font-bold text-[13px] px-5 py-2.5 rounded-md"
               >
-                {featuredProduct.price ? "Add to Cart" : "Ask for Price"}
+                {featuredProduct.price ? "Order Now" : "Ask for Price"}
               </a>
             </div>
           </div>
