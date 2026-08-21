@@ -21,7 +21,7 @@ export default function ContactPage() {
             <div className="text-teal text-[11px] uppercase tracking-wide mb-1.5">
               Phone
             </div>
-            <div>0300-1234567</div>
+            <div>0336-8526999</div>
           </div>
           <div>
             <div className="text-teal text-[11px] uppercase tracking-wide mb-1.5">
