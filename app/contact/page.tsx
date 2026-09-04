@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact Us | medionline",
+  description:
+    "Get in touch with medionline for order questions, bulk supply for clinics, or general support — call, email, or send a message.",
+};
 
 export default function ContactPage() {
   return (

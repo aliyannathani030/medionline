@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import FaqAccordion from "@/components/FaqAccordion";
 import { faqs } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "FAQs | medionline",
+  description:
+    "Answers to common questions about ordering medical supplies, delivery times, payment, returns, and bulk orders for clinics.",
+};
 
 export default function FaqPage() {
   return (

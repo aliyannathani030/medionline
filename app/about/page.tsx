@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | medionline",
+  description:
+    "medionline sources genuine medical supplies from licensed distributors in Pakistan, serving patients, families, and clinics across Karachi.",
+};
+
 const values = [
   {
     title: "Verified sourcing",

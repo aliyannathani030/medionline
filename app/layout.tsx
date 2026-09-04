@@ -5,9 +5,19 @@ import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://medionline.com"),
   title: "medionline — Genuine Medical Supplies, Delivered in Karachi",
   description:
     "Medicines, diagnostic devices, PPE and disposables sourced from licensed distributors, delivered same-day across Karachi.",
+  openGraph: {
+    title: "medionline — Genuine Medical Supplies, Delivered in Karachi",
+    description:
+      "Medicines, diagnostic devices, PPE and disposables sourced from licensed distributors, delivered same-day across Karachi.",
+    url: "https://medionline.com",
+    siteName: "medionline",
+    locale: "en_PK",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

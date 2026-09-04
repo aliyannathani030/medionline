@@ -1,17 +1,40 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import ProductCard from "@/components/ProductCard";
 import { categories, products } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Shop Medical Supplies | medionline",
+  description:
+    "Browse hospital disposables, pharmacy packaging, and hygiene products from medionline — genuine medical supplies delivered across Karachi.",
+};
 
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ category?: string; q?: string }>;
 }) {
-  const { category } = await searchParams;
+  const { category, q } = await searchParams;
   const activeCategory = categories.find((c) => c.slug === category);
-  const filtered = activeCategory
+  const query = q?.trim().toLowerCase();
+
+  let filtered = activeCategory
     ? products.filter((p) => p.category === activeCategory.name)
     : products;
+
+  if (query) {
+    filtered = filtered.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+    );
+  }
+
+  const heading = query
+    ? `Results for "${q}"`
+    : activeCategory
+    ? activeCategory.name
+    : "All products";
 
   return (
     <section className="px-6 sm:px-16 py-16 sm:py-20">
@@ -20,14 +43,14 @@ export default async function ProductsPage({
         Catalogue
       </div>
       <h1 className="font-display text-[34px] sm:text-[42px] font-medium mb-8">
-        {activeCategory ? activeCategory.name : "All products"}
+        {heading}
       </h1>
 
       <div className="flex flex-wrap gap-2.5 mb-12">
         <Link
           href="/products"
           className={`px-4 py-2 rounded-full text-sm border transition-colors ${
-            !activeCategory
+            !activeCategory && !query
               ? "bg-teal-deep text-white border-teal-deep"
               : "border-line text-muted hover:border-teal"
           }`}
@@ -56,7 +79,9 @@ export default async function ProductsPage({
           ))}
         </div>
       ) : (
-        <p className="text-muted text-sm">No products in this category yet.</p>
+        <p className="text-muted text-sm">
+          No products found{query ? ` for "${q}"` : ""}.
+        </p>
       )}
     </section>
   );
