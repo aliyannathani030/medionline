@@ -3,7 +3,7 @@ import SearchBox from "./SearchBox";
 
 const navLinks = [
   { href: "/products?category=hospital-disposables", label: "Hospital Disposables" },
-  { href: "/products?category=pharmacy-packaging", label: "Pharmacy Packaging" },
+  { href: "/products?category=surgical-procedure-packs", label: "Procedure Packs" },
   { href: "/products?category=hygiene-personal-care", label: "Hygiene & Care" },
   { href: "/about", label: "For Clinics" },
 ];

@@ -12,6 +12,7 @@ export type Product = {
   category: string;
   price?: number; // left blank until client finalizes pricing
   inStock: boolean;
+  image: string;
 };
 
 export const categories: Category[] = [
@@ -23,9 +24,9 @@ export const categories: Category[] = [
     featured: true,
   },
   {
-    slug: "pharmacy-packaging",
-    name: "Pharmacy Packaging & Supplies",
-    tagline: "Bottles, bags, and pharmacy essentials",
+    slug: "surgical-procedure-packs",
+    name: "Surgical & Procedure Packs",
+    tagline: "Sterile single-use kits for common procedures",
     index: "02",
   },
   {
@@ -37,144 +38,199 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
-  {
-    sku: "02",
-    name: "Ear Plug — Honeywell 3M",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "04",
-    name: "Disposable Medical Underwear",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "05",
-    name: "Sterile Gauze Swabs",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-    // featured on homepage hero
-  },
-  {
-    sku: "06",
-    name: "Zip Lock Bio-Specimen Bags",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "07",
-    name: "Single-Use Vaginal Speculum",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "08",
-    name: "Sterile Cotton Balls",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "09",
-    name: "Urine Containers — 60ml / 100ml / 120ml",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "10",
-    name: "Philadelphia Collar",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "12",
-    name: "Liquiband Optima",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "15",
-    name: "Sterile Lubricating Jelly",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "16",
-    name: "Precise Skin Marking",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "17",
-    name: "Gas Sampling Line",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
-  {
-    sku: "21",
-    name: "Unsterile Gauze Swabs — 100pcs Packet",
-    category: "Hospital Disposables & Consumables",
-    inStock: true,
-  },
+  // Hospital Disposables & Consumables
   {
     sku: "01",
-    name: "DVD-R Printable — 4.7GB 120 MIN",
-    category: "Pharmacy Packaging & Supplies",
+    name: "Ear Plugs — Noise Reduction",
+    category: "Hospital Disposables & Consumables",
     inStock: true,
+    image: "/products/ear-plugs.jpg",
   },
   {
-    sku: "11",
-    name: "Disposable Paper Plates",
-    category: "Pharmacy Packaging & Supplies",
+    sku: "02",
+    name: "PE Gloves — Disposable",
+    category: "Hospital Disposables & Consumables",
     inStock: true,
-  },
-  {
-    sku: "14",
-    name: "Glossy Paper Bag — Vomiting / Pharmacy / Goods Bag",
-    category: "Pharmacy Packaging & Supplies",
-    inStock: true,
-  },
-  {
-    sku: "18",
-    name: "Amber Bottles — 30ml / 60ml / 120ml / 250ml / 500ml",
-    category: "Pharmacy Packaging & Supplies",
-    inStock: true,
-  },
-  {
-    sku: "19",
-    name: "Transparent Empty Plastic Bottles",
-    category: "Pharmacy Packaging & Supplies",
-    inStock: true,
-  },
-  {
-    sku: "20",
-    name: "Medication Containers — 20gm / 35gm",
-    category: "Pharmacy Packaging & Supplies",
-    inStock: true,
+    image: "/products/pe-gloves.jpg",
   },
   {
     sku: "03",
-    name: "Anodyne Pain Relief Balm — 20gm",
-    category: "Hygiene & Personal Care",
+    name: "Urine Containers — 60ml / 100ml / 120ml",
+    category: "Hospital Disposables & Consumables",
     inStock: true,
+    image: "/products/urine-containers.jpg",
+  },
+  {
+    sku: "04",
+    name: "Sterile Tubular Bandage",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/sterile-tubular-bandage.jpg",
+  },
+  {
+    sku: "05",
+    name: "Gas Sampling Line — 4m",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/gas-sampling-line.jpg",
+  },
+  {
+    sku: "06",
+    name: "Sterile Gauze Swabs — Pack of 25",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/gauze-swab.jpg",
+  },
+  {
+    sku: "07",
+    name: "Sterile Cotton Balls",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/cotton-ball.jpg",
+  },
+  {
+    sku: "08",
+    name: "Elastic Crepe Bandage",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/crepe-bandage.jpg",
+  },
+  {
+    sku: "09",
+    name: "Conformable Bandage — Burn Care",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/conformable-bandage.jpg",
+  },
+  {
+    sku: "10",
+    name: "Maternity / Abdominal Pad — 10 x 30",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/maternity-pad.jpg",
+  },
+  {
+    sku: "11",
+    name: "Surgical Skin Marker",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/skin-marker.jpg",
+  },
+  {
+    sku: "12",
+    name: "Disposable Underwear",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/disposable-underwear.jpg",
   },
   {
     sku: "13",
-    name: "Hand Sanitizer — Bottle / Pouch & Dispenser",
+    name: "Philadelphia Tracheotomy Collar",
+    category: "Hospital Disposables & Consumables",
+    inStock: true,
+    image: "/products/tracheotomy-collar.jpg",
+  },
+
+  // Surgical & Procedure Packs
+  {
+    sku: "14",
+    name: "Umbilical Cord Clamp",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/umbilical-cord-clamp.jpg",
+  },
+  {
+    sku: "15",
+    name: "CVP Insertion Pack",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/cvp-insertion-pack.jpg",
+  },
+  {
+    sku: "16",
+    name: "Zip Lock Bio-Specimen Bags",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/ziplock-specimen-bag.jpg",
+  },
+  {
+    sku: "17",
+    name: "Mouth Care Pack",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/mouth-care-pack.jpg",
+  },
+  {
+    sku: "18",
+    name: "Spinal-Epidural Pack",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/spinal-epidural-pack.jpg",
+  },
+  {
+    sku: "19",
+    name: "Caudal Block Pack",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/caudal-block-pack.jpg",
+  },
+  {
+    sku: "20",
+    name: "Catheterization Pack",
+    category: "Surgical & Procedure Packs",
+    inStock: true,
+    image: "/products/catheterization-pack.jpg",
+  },
+
+  // Hygiene & Personal Care
+  {
+    sku: "21",
+    name: "Hand Sanitizer — Wall Dispenser & Refill Pouch",
     category: "Hygiene & Personal Care",
     inStock: true,
+    image: "/products/hand-sanitizer-dispenser.jpg",
   },
   {
     sku: "22",
-    name: "Anodyne Petroleum Jelly",
+    name: "Hand Sanitizer Gel — Pump Bottle",
     category: "Hygiene & Personal Care",
     inStock: true,
+    image: "/products/hand-sanitizer-bottle.jpg",
   },
   {
     sku: "23",
-    name: "Handwash",
+    name: "Anodyne Instant Pain Relief Balm",
     category: "Hygiene & Personal Care",
     inStock: true,
+    image: "/products/anodyne-balm-adult.jpg",
+  },
+  {
+    sku: "24",
+    name: "Anodyne Pain Relief Balm — Peads",
+    category: "Hygiene & Personal Care",
+    inStock: true,
+    image: "/products/anodyne-balm-peads.jpg",
+  },
+  {
+    sku: "25",
+    name: "Anodyne Petroleum Jelly — 50gm",
+    category: "Hygiene & Personal Care",
+    inStock: true,
+    image: "/products/anodyne-petroleum-jelly.jpg",
+  },
+  {
+    sku: "26",
+    name: "Lubricating Jelly",
+    category: "Hygiene & Personal Care",
+    inStock: true,
+    image: "/products/lubricating-jelly.jpg",
+  },
+  {
+    sku: "27",
+    name: "Ultrasound / ECG Gel",
+    category: "Hygiene & Personal Care",
+    inStock: true,
+    image: "/products/ultrasound-ecg-gel.jpg",
   },
 ];
 

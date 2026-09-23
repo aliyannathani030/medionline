@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import { categories, products } from "@/lib/data";
@@ -11,7 +12,7 @@ const stats = [
 
 export default function Home() {
   const featuredProduct =
-    products.find((p) => p.sku === "05") ?? products[0];
+    products.find((p) => p.sku === "23") ?? products[0];
 
   return (
     <>
@@ -61,6 +62,16 @@ export default function Home() {
           <div className="bg-teal-deep text-teal-pale font-mono text-[11px] tracking-wide px-6 py-3 flex justify-between">
             <span>FEATURED · SKU {featuredProduct.sku}</span>
             <span>IN STOCK</span>
+          </div>
+          <div className="relative aspect-[4/3] bg-[#f6f4ee] border-b border-line">
+            <Image
+              src={featuredProduct.image}
+              alt={featuredProduct.name}
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-contain p-6"
+              priority
+            />
           </div>
           <div className="p-7">
             <div className="font-mono text-[11px] text-teal tracking-wide mb-2.5 uppercase">

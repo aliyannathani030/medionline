@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Product } from "@/lib/data";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -6,6 +7,15 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="bg-teal-deep text-teal-pale font-mono text-[11px] tracking-wide px-5 py-3 flex justify-between">
         <span>SKU {product.sku}</span>
         <span>{product.inStock ? "IN STOCK" : "OUT OF STOCK"}</span>
+      </div>
+      <div className="relative aspect-square bg-[#f6f4ee] border-b border-line">
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-contain p-4"
+        />
       </div>
       <div className="p-6 flex flex-col flex-1">
         <div className="font-mono text-[11px] text-teal tracking-wide mb-2.5 uppercase">
