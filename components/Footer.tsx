@@ -7,7 +7,7 @@ export default function Footer() {
         <span className="w-8 h-8 rounded-full bg-teal-deep text-white flex items-center justify-center font-mono text-sm font-bold">
           Rx
         </span>
-        <span className="text-muted text-sm">© 2026 medionline.com — Karachi, Pakistan</span>
+        <span className="text-muted text-sm">© 2026 1medionline.com — Karachi, Pakistan</span>
       </div>
       <div className="flex gap-6 sm:gap-8 text-sm text-muted flex-wrap justify-center">
         <Link href="/about" className="hover:text-teal-deep transition-colors">About</Link>

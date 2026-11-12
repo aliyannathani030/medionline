@@ -34,7 +34,7 @@ export default function ContactPage() {
             <div className="text-teal text-[11px] uppercase tracking-wide mb-1.5">
               Email
             </div>
-            <div>support@medionline.com</div>
+            <div>support@1medionline.com</div>
           </div>
           <div>
             <div className="text-teal text-[11px] uppercase tracking-wide mb-1.5">

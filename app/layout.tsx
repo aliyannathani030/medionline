@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://medionline.com"),
+  metadataBase: new URL("https://1medionline.com"),
   title: "medionline — Genuine Medical Supplies, Delivered in Karachi",
   description:
     "Medicines, diagnostic devices, PPE and disposables sourced from licensed distributors, delivered same-day across Karachi.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "medionline — Genuine Medical Supplies, Delivered in Karachi",
     description:
       "Medicines, diagnostic devices, PPE and disposables sourced from licensed distributors, delivered same-day across Karachi.",
-    url: "https://medionline.com",
+    url: "https://1medionline.com",
     siteName: "medionline",
     locale: "en_PK",
     type: "website",

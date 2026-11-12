@@ -13,6 +13,18 @@ export type Product = {
   price?: number; // left blank until client finalizes pricing
   inStock: boolean;
   image: string;
+  bulk?: boolean; // in stock in bulk quantity
+  slug?: string; // products with a slug get their own SEO page
+  details?: ProductDetails;
+};
+
+export type ProductDetails = {
+  seoTitle: string;
+  seoDescription: string;
+  intro: string;
+  features: string[];
+  specs: { label: string; value: string }[];
+  uses: string[];
 };
 
 export const categories: Category[] = [
@@ -52,6 +64,33 @@ export const products: Product[] = [
     category: "Hospital Disposables & Consumables",
     inStock: true,
     image: "/products/pe-gloves.jpg",
+    bulk: true,
+    slug: "disposable-pe-gloves",
+    details: {
+      seoTitle: "Disposable Embossed PE Gloves (100 pcs) — Bulk Supply | medionline",
+      seoDescription:
+        "Disposable embossed polyethylene (PE) gloves, 100 pieces per pack, available in bulk quantity from medionline, Karachi. Ask us for bulk pricing.",
+      intro:
+        "Single-use embossed polyethylene gloves packed 100 pieces to a pack. A practical, low-cost glove for hygiene, cleaning and general non-sterile tasks where gloves are changed often. We hold this item in bulk quantity, so larger orders can be supplied.",
+      features: [
+        "Embossed PE film for a better grip than smooth film",
+        "Disposable, single-use — change as often as needed",
+        "100 gloves in every pack",
+        "Available in bulk quantity for hospitals, clinics, kitchens and cleaning teams",
+      ],
+      specs: [
+        { label: "Material", value: "Embossed polyethylene (PE)" },
+        { label: "Pack size", value: "100 pieces per pack" },
+        { label: "Use", value: "Disposable, single use" },
+        { label: "Supply", value: "Bulk quantity available" },
+      ],
+      uses: [
+        "Hospital and clinic housekeeping",
+        "Food handling and kitchens",
+        "Cleaning and hygiene tasks",
+        "Labs and general non-sterile work",
+      ],
+    },
   },
   {
     sku: "03",
@@ -80,6 +119,34 @@ export const products: Product[] = [
     category: "Hospital Disposables & Consumables",
     inStock: true,
     image: "/products/gauze-swab.jpg",
+    bulk: true,
+    slug: "sterile-gauze-swabs",
+    details: {
+      seoTitle: "Sterile Gauze Swabs 8-Ply (Pack of 25) — Bulk | medionline",
+      seoDescription:
+        "Sterile absorbent gauze swabs, 8-ply, 25 pieces per pack, EO sterilised and single use. Available in bulk quantity from medionline, Karachi.",
+      intro:
+        "Sterile, absorbent 8-ply gauze swabs supplied 25 pieces per pack. Each pack is sealed and sterilised with ethylene oxide (EO), with a colour indicator that changes after sterilisation. We hold this item in bulk quantity for hospitals, clinics and pharmacies.",
+      features: [
+        "Sterile and single use — sterile unless the package is damaged or opened",
+        "Soft, absorbent 8-ply gauze",
+        "25 swabs per sealed pack",
+        "Sterilisation indicator: pink before, brown after sterilisation",
+      ],
+      specs: [
+        { label: "Type", value: "Sterile absorbent gauze swab" },
+        { label: "Ply", value: "8-ply" },
+        { label: "Pack size", value: "25 pieces per pack" },
+        { label: "Sterilisation", value: "Ethylene oxide (EO), single use" },
+        { label: "Supply", value: "Bulk quantity available" },
+      ],
+      uses: [
+        "Wound cleaning and dressing",
+        "Surgical and procedure rooms",
+        "Clinics, hospitals and pharmacies",
+        "First-aid kits",
+      ],
+    },
   },
   {
     sku: "07",
@@ -122,6 +189,33 @@ export const products: Product[] = [
     category: "Hospital Disposables & Consumables",
     inStock: true,
     image: "/products/disposable-underwear.jpg",
+    bulk: true,
+    slug: "disposable-underwear",
+    details: {
+      seoTitle: "Disposable Underwear for Hospitals & Clinics — Bulk | medionline",
+      seoDescription:
+        "Single-use disposable underwear for hospital, clinic and maternity use, individually packed. Available in bulk quantity from medionline, Karachi.",
+      intro:
+        "Lightweight single-use underwear for patients in hospitals, clinics and maternity wards. Each piece is individually packed, so it stays clean until it is used. We hold this item in bulk quantity for institutions that need regular supply.",
+      features: [
+        "Single use — no washing, no cross-contamination between patients",
+        "Light, soft and breathable",
+        "Individually packed",
+        "Sizes include 4XL — ask us for other sizes",
+      ],
+      specs: [
+        { label: "Type", value: "Disposable underwear" },
+        { label: "Packing", value: "Individually packed" },
+        { label: "Sizes", value: "Includes 4XL (ask for other sizes)" },
+        { label: "Supply", value: "Bulk quantity available" },
+      ],
+      uses: [
+        "Hospital and clinic patient care",
+        "Maternity and post-natal care",
+        "Before and after procedures",
+        "Elderly care and rehabilitation",
+      ],
+    },
   },
   {
     sku: "13",
