@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
-import { categories, products } from "@/lib/data";
+import HeroSlider from "@/components/HeroSlider";
+import { categories } from "@/lib/data";
 
 const stats = [
   { num: "4,200+", label: "Orders Delivered" },
@@ -11,95 +10,9 @@ const stats = [
 ];
 
 export default function Home() {
-  const featuredProduct =
-    products.find((p) => p.sku === "23") ?? products[0];
-
   return (
     <>
-      {/* Hero */}
-      <section className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 px-6 sm:px-16 pt-16 sm:pt-20 items-center">
-        <div>
-          <div className="font-mono text-xs tracking-[0.12em] uppercase text-teal flex items-center gap-2.5 mb-6">
-            <span className="w-6 h-px bg-teal" />
-            Trusted Medical Supplies, Pakistan
-          </div>
-          <h1 className="font-display font-medium text-[42px] sm:text-[58px] leading-[1.05] tracking-tight mb-6">
-            Healthcare essentials,{" "}
-            <em className="italic text-teal">delivered</em> to your door.
-          </h1>
-          <p className="text-[16.5px] text-muted leading-relaxed max-w-md mb-8">
-            Genuine medicines, devices, and disposables sourced directly from
-            licensed distributors — ordered online, delivered same-day
-            across Karachi.
-          </p>
-          <div className="flex flex-wrap gap-3.5 mb-9">
-            <Link
-              href="/products"
-              className="bg-teal-deep text-white font-semibold px-7 py-4 rounded-md text-sm hover:bg-teal transition-colors"
-            >
-              Shop Now →
-            </Link>
-            <Link
-              href="/contact"
-              className="border border-ink font-semibold px-7 py-4 rounded-md text-sm hover:bg-white transition-colors"
-            >
-              Talk to a Pharmacist
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-6 sm:gap-8">
-            {["DRAP Registered", "Cash on Delivery", "Same-Day Dispatch"].map(
-              (t) => (
-                <div key={t} className="flex items-center gap-2 text-[12.5px] text-muted">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber" />
-                  {t}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        <div className="bg-white border border-line rounded-[10px] shadow-[0_30px_60px_-25px_rgba(14,59,55,0.25)] overflow-hidden">
-          <div className="bg-teal-deep text-teal-pale font-mono text-[11px] tracking-wide px-6 py-3 flex justify-between">
-            <span>FEATURED · SKU {featuredProduct.sku}</span>
-            <span>IN STOCK</span>
-          </div>
-          <div className="relative aspect-[4/3] bg-[#f6f4ee] border-b border-line">
-            <Image
-              src={featuredProduct.image}
-              alt={featuredProduct.name}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain p-6"
-              priority
-            />
-          </div>
-          <div className="p-7">
-            <div className="font-mono text-[11px] text-teal tracking-wide mb-2.5 uppercase">
-              {featuredProduct.category}
-            </div>
-            <h3 className="font-display text-[22px] font-semibold mb-6">
-              {featuredProduct.name}
-            </h3>
-            <div className="flex justify-between items-center border-t border-line pt-4">
-              {featuredProduct.price ? (
-                <span className="font-mono text-xl font-bold text-teal-deep">
-                  Rs. {featuredProduct.price.toLocaleString()}
-                </span>
-              ) : (
-                <span className="font-mono text-xs text-muted italic">
-                  Price on request
-                </span>
-              )}
-              <a
-                href={featuredProduct.price ? "/products" : "/contact"}
-                className="bg-amber text-teal-deep font-bold text-[13px] px-5 py-2.5 rounded-md"
-              >
-                {featuredProduct.price ? "Order Now" : "Ask for Price"}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Categories */}
       <section className="px-6 sm:px-16 py-20 sm:py-24">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categories, products } from "@/lib/data";
+import { PHONE_DISPLAY, PHONE_TEL, productEnquiry, whatsappLink } from "@/lib/contact";
 
 const SITE = "https://1medionline.com";
 
@@ -94,7 +95,7 @@ export default async function ProductPage({
         <div className="relative aspect-square bg-white border border-line rounded-[10px] overflow-hidden">
           <Image
             src={product.image}
-            alt={`${product.name} — available in bulk at medionline`}
+            alt={product.bulk ? `${product.name} — available in bulk at medionline` : product.name}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -123,17 +124,19 @@ export default async function ProductPage({
           <p className="text-muted leading-relaxed mb-8">{d.intro}</p>
 
           <div className="flex flex-wrap gap-3.5 mb-10">
-            <Link
-              href="/contact"
+            <a
+              href={whatsappLink(productEnquiry(product.name))}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-teal-deep text-white font-semibold px-7 py-4 rounded-md text-sm hover:bg-teal transition-colors"
             >
-              Ask for Bulk Price →
-            </Link>
+              {product.bulk ? "Ask for Bulk Price on WhatsApp →" : "Ask for Price on WhatsApp →"}
+            </a>
             <a
-              href="tel:03368526999"
+              href={PHONE_TEL}
               className="border border-ink font-semibold px-7 py-4 rounded-md text-sm hover:bg-white transition-colors"
             >
-              Call 0336-8526999
+              Call {PHONE_DISPLAY}
             </a>
           </div>
 
@@ -180,7 +183,7 @@ export default async function ProductPage({
                 href={r.slug ? `/products/${r.slug}` : `/products?category=${category?.slug ?? ""}`}
                 className="bg-white border border-line rounded-[10px] overflow-hidden hover:-translate-y-0.5 transition-transform"
               >
-                <div className="relative aspect-square bg-[#f6f4ee] border-b border-line">
+                <div className="relative aspect-square bg-white border-b border-line">
                   <Image src={r.image} alt={r.name} fill sizes="25vw" className="object-contain p-4" />
                 </div>
                 <div className="p-4 font-display font-semibold leading-snug">{r.name}</div>

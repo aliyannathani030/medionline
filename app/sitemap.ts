@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/products/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.9,
+      priority: p.bulk ? 0.9 : 0.7,
     }));
 
   return [...pages, ...productPages];

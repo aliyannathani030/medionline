@@ -1,28 +1,53 @@
 "use client";
 
 import { useState } from "react";
+import { whatsappLink } from "@/lib/contact";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [link, setLink] = useState<string | null>(null);
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+
+  function update(key: keyof typeof form, value: string) {
+    setForm((f) => ({ ...f, [key]: value }));
+  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: wire this up to a backend/API route once hosting + email service is set up.
-    setSubmitted(true);
+    const text = [
+      "Hello medionline,",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Email: ${form.email}`,
+      `Message: ${form.message}`,
+    ].join("\n");
+    const url = whatsappLink(text);
+    setLink(url);
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  if (submitted) {
+  const input =
+    "w-full border border-line rounded-md px-4 py-3 text-sm outline-none focus:border-teal transition-colors";
+  const label = "block text-xs font-mono uppercase tracking-wide text-muted mb-2";
+
+  if (link) {
     return (
       <div className="bg-white border border-line rounded-[10px] p-10 flex flex-col items-start justify-center">
         <div className="w-10 h-10 rounded-full bg-teal-pale text-teal-deep flex items-center justify-center font-bold mb-5">
           ✓
         </div>
-        <h3 className="font-display text-xl font-semibold mb-2">
-          Message sent
-        </h3>
-        <p className="text-muted text-sm">
-          Thanks for reaching out — we&apos;ll get back to you shortly.
+        <h3 className="font-display text-xl font-semibold mb-2">Opening WhatsApp…</h3>
+        <p className="text-muted text-sm mb-5">
+          Your message is ready — just press send in WhatsApp. If it did not open,
+          use the button below.
         </p>
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-teal-deep text-white font-semibold px-6 py-3 rounded-md text-sm hover:bg-teal transition-colors"
+        >
+          Open WhatsApp
+        </a>
       </div>
     );
   }
@@ -34,58 +59,31 @@ export default function ContactForm() {
     >
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs font-mono uppercase tracking-wide text-muted mb-2">
-            Full name
-          </label>
-          <input
-            required
-            type="text"
-            className="w-full border border-line rounded-md px-4 py-3 text-sm outline-none focus:border-teal transition-colors"
-            placeholder="Ali Ahmed"
-          />
+          <label className={label}>Full name</label>
+          <input required type="text" className={input} placeholder="Ali Ahmed"
+            value={form.name} onChange={(e) => update("name", e.target.value)} />
         </div>
         <div>
-          <label className="block text-xs font-mono uppercase tracking-wide text-muted mb-2">
-            Phone
-          </label>
-          <input
-            required
-            type="tel"
-            className="w-full border border-line rounded-md px-4 py-3 text-sm outline-none focus:border-teal transition-colors"
-            placeholder="03XX-XXXXXXX"
-          />
+          <label className={label}>Phone</label>
+          <input required type="tel" className={input} placeholder="03XX-XXXXXXX"
+            value={form.phone} onChange={(e) => update("phone", e.target.value)} />
         </div>
       </div>
-
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wide text-muted mb-2">
-          Email
-        </label>
-        <input
-          required
-          type="email"
-          className="w-full border border-line rounded-md px-4 py-3 text-sm outline-none focus:border-teal transition-colors"
-          placeholder="you@example.com"
-        />
+        <label className={label}>Email (optional)</label>
+        <input type="email" className={input} placeholder="you@example.com"
+          value={form.email} onChange={(e) => update("email", e.target.value)} />
       </div>
-
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wide text-muted mb-2">
-          Message
-        </label>
-        <textarea
-          required
-          rows={5}
-          className="w-full border border-line rounded-md px-4 py-3 text-sm outline-none focus:border-teal transition-colors resize-none"
-          placeholder="How can we help?"
-        />
+        <label className={label}>Message</label>
+        <textarea required rows={5} className={`${input} resize-none`} placeholder="How can we help?"
+          value={form.message} onChange={(e) => update("message", e.target.value)} />
       </div>
-
       <button
         type="submit"
         className="bg-teal-deep text-white font-semibold px-7 py-3.5 rounded-md text-sm hover:bg-teal transition-colors"
       >
-        Send Message
+        Send on WhatsApp
       </button>
     </form>
   );

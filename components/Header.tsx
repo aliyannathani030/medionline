@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SearchBox from "./SearchBox";
+import { GENERAL_ENQUIRY, whatsappLink } from "@/lib/contact";
 
 const navLinks = [
   { href: "/products?category=hospital-disposables", label: "Hospital Disposables" },
@@ -28,12 +29,14 @@ export default function Header() {
 
       <div className="flex items-center gap-4 sm:gap-5">
         <SearchBox />
-        <Link
-          href="/contact"
+        <a
+          href={whatsappLink(GENERAL_ENQUIRY)}
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-teal-deep text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-teal transition-colors"
         >
           Talk to Us
-        </Link>
+        </a>
       </div>
     </header>
   );
